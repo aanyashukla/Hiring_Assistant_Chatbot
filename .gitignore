@@ -1,0 +1,7 @@
+# Virtual Environment
+.venv/
+venv/
+*.pyc
+
+# IDE specific
+.vscode/
