@@ -30,8 +30,8 @@ Follow these steps to set up and run the application locally:
 
 1.  **Clone the Repository**
     ```bash
-    git clone <https://github.com/aanyashukla/Hiring_Assistant_Chatbot>
-    cd <Hiring_ChatBot>
+    git clone [https://github.com/aanyashukla/Hiring_Assistant_Chatbot](https://github.com/aanyashukla/Hiring_Assistant_Chatbot)
+    cd Hiring_Assistant_Chatbot
     ```
 
 2.  **Create and Activate a Virtual Environment**
