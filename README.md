@@ -1,5 +1,7 @@
 # 🤖 TalentScout AI Hiring Assistant
 
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://hiringassistantchatbot-67.streamlit.app/)
+
 ## Project Overview
 
 This project is an intelligent AI Hiring Assistant chatbot created for "TalentScout," a fictional recruitment agency. The chatbot is designed to conduct the initial screening of candidates by gathering essential information and generating relevant technical questions based on the candidate's declared tech stack. This project demonstrates the practical application of Large Language Models (LLMs) in a real-world scenario.
