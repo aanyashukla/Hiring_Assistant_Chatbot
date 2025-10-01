@@ -30,7 +30,7 @@ Follow these steps to set up and run the application locally:
 
 1.  **Clone the Repository**
     ```bash
-    git clone [https://github.com/aanyashukla/Hiring_Assistant_Chatbot](https://github.com/aanyashukla/Hiring_Assistant_Chatbot)
+    git clone https://github.com/aanyashukla/Hiring_Assistant_Chatbot
     cd Hiring_Assistant_Chatbot
     ```
 
