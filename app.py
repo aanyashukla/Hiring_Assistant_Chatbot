@@ -31,9 +31,15 @@ You are "Scout", a friendly and highly professional AI Hiring Assistant for "Tal
 
 # Initialize the Generative Model
 model = genai.GenerativeModel(
-    model_name="gemini-pro-latest",
+    model_name="models/gemini-2.5-flash",
     system_instruction=SYSTEM_INSTRUCTION
 )
+
+# --- SANITY CHECK (temporary) ---
+if "sanity_checked" not in st.session_state:
+    test_resp = model.generate_content("Reply with exactly: SANITY OK")
+    st.session_state.sanity_checked = True
+    st.info(f"Model sanity check: {test_resp.text}")
 
 # --- STREAMLIT APP INTERFACE ---
 st.title("🤖 TalentScout AI Hiring Assistant")
@@ -64,12 +70,12 @@ if prompt := st.chat_input("Your response..."):
     # Send the user's message to the Gemini API
     try:
         response = st.session_state.chat.send_message(prompt)
-        
-        # Add assistant's reply to the display history
-        st.session_state.display_history.append({"role": "assistant", "content": response.text})
-        
-        # Rerun the app to display the new message immediately
-        st.rerun()
 
-    except Exception as e:
-        st.error(f"An error occurred: {e}")
+    except Exception:
+        fallback_model = genai.GenerativeModel("models/gemini-flash-latest")
+        fallback_chat = fallback_model.start_chat(history=st.session_state.chat.history)
+        response = fallback_chat.send_message(prompt)
+        st.session_state.chat = fallback_chat  # switch session to fallback
+
+    st.session_state.display_history.append({"role": "assistant", "content": response.text})
+    st.rerun()
