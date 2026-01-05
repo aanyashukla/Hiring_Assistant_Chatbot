@@ -35,12 +35,6 @@ model = genai.GenerativeModel(
     system_instruction=SYSTEM_INSTRUCTION
 )
 
-# --- SANITY CHECK (temporary) ---
-if "sanity_checked" not in st.session_state:
-    test_resp = model.generate_content("Reply with exactly: SANITY OK")
-    st.session_state.sanity_checked = True
-    st.info(f"Model sanity check: {test_resp.text}")
-
 # --- STREAMLIT APP INTERFACE ---
 st.title("🤖 TalentScout AI Hiring Assistant")
 st.write("Welcome! I'm Scout, your AI assistant for the initial screening process.")
